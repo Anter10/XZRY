@@ -32,8 +32,8 @@
 <a href = "ExportHeroProperty.jsp">导出英雄属性数据</a>
 <a href = "heroperits.jsp">英雄等级数据</a>
 
-
-
+<hr color = "red">
+<a href = "partzdname.jsp">区别Excel不同字段数据</a>
 
 <hr color = "red">
 

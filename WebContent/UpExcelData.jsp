@@ -107,8 +107,7 @@
 		            	}
 		        		updateSql = updateSql + partSql + "where id = "+data.getString(0)+""; 
 			        	System.out.print("更新数据 = "+updateSql+"\n");
-			        	 
-			        		hasupdate = DealDatabase.updateDatabase(updateSql);
+			        	 hasupdate = DealDatabase.updateDatabase(updateSql);
 			         
 			            
 		        	}
