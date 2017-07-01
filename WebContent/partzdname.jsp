@@ -73,7 +73,7 @@
 				    }
 			    	
 			    	if (hasit == false){
-			    		darray3.put(darray1.getString(zd1index));
+			    		darray3.put(" "+String.valueOf(zd1index)+"位置 = "+darray1.getString(zd1index));
 			    	}
 			    }
 			    
@@ -88,7 +88,7 @@
 				    }
 			    	
 			    	if (hasit == false){
-			    		darray3.put(darray2.getString(zd2index));
+			    		darray3.put(" "+String.valueOf(zd2index)+" 位置 = " +darray2.getString(zd2index));
 			    	}
 			    }
 			    

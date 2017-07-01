@@ -53,9 +53,17 @@
 		        String tablename = fileName.split("\\.")[0];
 		        
 		        System.out.print("字段名称  = "+zdArray.toString());
+		        
+		    	String showzds = "describe " +tablename; 
+	        	JSONArray allzds = DealDatabase.getDescrible(showzds);
+    			 
+	        	
+	        	
+    			
 		        for(int dataIndex = 0; dataIndex < fileJSONArray.length(); dataIndex++){
 		        	String updateSql = "";
 		        	
+		        	 
 		        	JSONArray data = fileJSONArray.getJSONArray(dataIndex);
 		        	if(data.getString(0).equals("id") == false){
 		        	String select = "select * from " + tablename + " where id = '"+data.getString(0)+"'";
@@ -66,8 +74,8 @@
 		        	String partDh = ",";
 		        	String partSql = "" ;
 		        	
+		        
 		        	
-	        		
 	        		if(hasupdate == true){
 	        			System.out.print("数据删除成功 = "+delete+"\n");
 	        		}
@@ -79,7 +87,29 @@
 		        			if(zdIndex == zdArray.length() -1){
 		        				partDh = "";
 		        			}
-		        			zdnames = zdnames + zdArray.getString(zdIndex)+partDh;
+		        			
+		        		
+		        			/* 判断字段名称是否存在 */
+		        		  
+		        		    String zdname = zdArray.getString(zdIndex);
+		        		    boolean haszd = false;
+		        		    for(int zdnums = 0; zdnums < allzds.length(); zdnums++){
+		        		    	if (zdname.equals(allzds.getString(zdnums))){
+		        		    		haszd = true;
+		        		    		break;
+		        		    	}
+		        		    }
+		        		    if (haszd == false){
+		        		       String addsql = "ALTER TABLE " + tablename + " add " + zdname +" varchar(320)";
+		        		       System.out.print(zdname+ " 添加了新的字段了1 "+addsql);
+		        		       boolean add = DealDatabase.executeSQL(addsql);
+		        		       allzds.put(zdname);
+				        	   if(add){
+				        		  System.out.print("添加了新的字段了"+zdArray.getString(zdIndex));
+				        	   }
+		        		    }
+		        		    
+		        			zdnames = zdnames + zdname + partDh;
 		        			String ttstr =  new String(data.getString(zdIndex).toString());
 		        			ttstr =   ttstr.replaceAll("'", "\\\\'"); 
 		        			System.out.print("str1 = "+ttstr+"\n");

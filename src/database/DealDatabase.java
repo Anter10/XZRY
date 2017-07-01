@@ -139,6 +139,50 @@ public class DealDatabase {
 	  	   }
 	  	   return labelName;
 	}
+	public static JSONArray getDescrible(String sql) throws SQLException, JSONException{
+		 Statement stmt1 = null;
+			try {
+				try {
+					stmt1 = (Statement) DB.getInstance().getStamt();
+				} catch (InstantiationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} catch (NamingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		  	   ResultSet rs = stmt1.executeQuery(sql);
+		  	   System.out.print("biaomingdd ");
+		  	   ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+		  	   String tbname = rsmd.getTableName(1);
+		  	  
+		  	   int colum = rsmd.getColumnCount();
+		  	   String [] labelName = new String[colum];
+		  	
+		  	   for(int index = 0; index < colum; index ++){
+		  		 labelName[index] = rsmd.getColumnName(index +1);
+		  	   }
+		  	 
+		  	   JSONArray ta = new JSONArray();
+		       int index = 0;
+		       
+		       JSONArray appts  = new JSONArray();
+		       while(rs.next()){
+		    	   String name = "Field";
+		    	   String fstr = rs.getString(name);
+		    	   appts.put(fstr);
+		                  	
+		       }
+		       
+		       
+		 
+		 
+		  	   return appts;
+	}
 	
     //	得到ResultSet查询结果
 	public static String getQuerryJsonStringData(String sql) throws SQLException, JSONException{
