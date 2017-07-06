@@ -126,7 +126,7 @@ a:hover{
 	  <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=RolesAllDialogData" >49:游戏中的角色对话数据</a></td>
 	  <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=AllDialogData" >50:所有单条对话数据</a></td>
   </tr>
-  <tr>
+  <tr> 
      <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=AllLanguageData" >51:所有发布的语言</a></td>
      <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=SystemAwardTypeData" >52:所有奖励类型</a></td>
   <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=ProperityEffectData" >53:效果库</a></td>

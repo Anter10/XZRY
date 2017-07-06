@@ -99,8 +99,10 @@
 		        		    		break;
 		        		    	}
 		        		    }
+		        		    
 		        		    if (haszd == false){
-		        		       String addsql = "ALTER TABLE " + tablename + " add " + zdname +" varchar(320)";
+		        		       System.out.print("zdIndex = " + zdArray.getString(zdIndex));
+		        		       String addsql = "ALTER TABLE " + tablename + " add " + zdArray.getString(zdIndex) +" varchar(320) default '0' " + "'"+ allzds.getString(zdIndex) + "'";
 		        		       System.out.print(zdname+ " 添加了新的字段了1 "+addsql);
 		        		       boolean add = DealDatabase.executeSQL(addsql);
 		        		       allzds.put(zdname);
@@ -122,7 +124,7 @@
 		        		updateSql = "insert into "  + tablename + zdnames + " values(";
 		        		partSql = partSql + ")";
 		        		updateSql = updateSql + partSql;
-			        	/* System.out.print("SLQYUJU = "+updateSql+"\n"); */
+  System.out.print("SLQYUJU = "+updateSql+"\n"); 
 			            hasupdate = DealDatabase.updateDatabase(updateSql);
 			        
 			            
