@@ -35,6 +35,10 @@
 <hr color = "red">
 <a href = "partzdname.jsp">区别Excel不同字段</a>
 
+<a href = "zipFile.jsp">压缩JSON文件夹</a>
+<a href = "downloadjson.jsp">下载JSON</a>
+
+
 <hr color = "red">
 
  

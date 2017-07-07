@@ -22,7 +22,7 @@
     	   String tableName = Param.allgametable[index];
     	   String exportsql = "select * from "+tableName; 
     	   String exportdata = DealDatabase.ExportGameData(exportsql);
-    	  
+    	   filemanager.getFM().writeJSONDataToFile(exportdata, "/Users/guoyouchao/Desktop/json/"+tableName+".json");
     	   filemanager.getFM().writeJSONDataToFile(exportdata, "/Users/guoyouchao/Desktop/work/client/res/Data_json/"+tableName+".json");
     	   filemanager.getFM().writeJSONDataToFile(exportdata, "/Users/guoyouchao/Documents/eclipsejee/XZRY/WebContent/JsonData/"+tableName+".json");
       } 
