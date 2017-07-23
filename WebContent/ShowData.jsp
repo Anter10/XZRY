@@ -74,7 +74,7 @@
 
    <!-- 显示数据 --> 
     <%
-     String sql = "Select * from "+TN+" order by id ASC";
+     String sql = "Select * from "+TN+"";
      System.out.print("数据 ＝ "+TN);
      String getData = DealDatabase.getQuerryJsonStringData(sql);
      String quuu = "show full fields from "+TN;

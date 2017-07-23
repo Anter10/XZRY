@@ -59,17 +59,19 @@
     			 
 	        	
 	        	
-    			
+	        	String delete = "delete from " + tablename;
+	        	boolean hasupdate = DealDatabase.updateDatabase(delete);
+	        	
 		        for(int dataIndex = 0; dataIndex < fileJSONArray.length(); dataIndex++){
 		        	String updateSql = "";
 		        	
 		        	 
 		        	JSONArray data = fileJSONArray.getJSONArray(dataIndex);
-		        	if(data.getString(0).equals("id") == false){
-		        	String select = "select * from " + tablename + " where id = '"+data.getString(0)+"'";
-		        	String delete = "delete from " + tablename + " where id = "+"'"+data.getString(0)+"'";
+		        	if(data.getString(0).equals("id") == false || data.getString(0).equals("f_id") == false ){
+		        	String select = "select * from " + tablename;
+		        	
 		        	/* System.out.print("数据删除成功12 = "+delete+"\n"); */
-	        		boolean hasupdate = DealDatabase.updateDatabase(delete);
+	        		
 		        	String hasId =  DealDatabase.getQuerryJsonStringData(select);
 		        	String partDh = ",";
 		        	String partSql = "" ;
@@ -79,10 +81,7 @@
 	        		if(hasupdate == true){
 	        			System.out.print("数据删除成功 = "+delete+"\n");
 	        		}
-	        		
-		        	if(hasId == null) {
-		        		
-		        		String zdnames = "(";
+	        		 String zdnames = "(";
 		        		for(int zdIndex = 0; zdIndex < zdArray.length(); zdIndex ++){
 		        			if(zdIndex == zdArray.length() -1){
 		        				partDh = "";
@@ -126,24 +125,7 @@
 		        		updateSql = updateSql + partSql;
   System.out.print("SLQYUJU = "+updateSql+"\n"); 
 			            hasupdate = DealDatabase.updateDatabase(updateSql);
-			        
-			            
-		        	}else{
-		        		
-		        		updateSql = "update "+tablename+" set ";
-		        		for(int zdIndex = 0; zdIndex < zdArray.length(); zdIndex ++){
-		        			if(zdIndex == zdArray.length() -1){
-		        				partDh = "";
-		        			}
-		        			partSql =  partSql + zdArray.getString(zdIndex) + " = '"+data.getString(zdIndex)+"'"  + partDh;
-		            	}
-		        		updateSql = updateSql + partSql + "where id = "+data.getString(0)+""; 
-			        	System.out.print("更新数据 = "+updateSql+"\n");
-			        	 hasupdate = DealDatabase.updateDatabase(updateSql);
-			         
-			            
-		        	}
-		        	}	
+			         }	
 		        	
 		         
 		         }

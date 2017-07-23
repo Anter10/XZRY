@@ -176,8 +176,10 @@ a:hover{
    <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=systemdandata" ><font color="000e0fe">89:玩家排位数据</font></a></td>
    <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=BattlePVEAreanPosData" ><font color="000e0fe">90:PVE阵型数据</font></a></td>
  </tr>
-  <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=systemmonsterdata" ><font color="red">91:怪物数据</font></a></td>
+   <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=systemmonsterdata" ><font color="red">91:怪物数据</font></a></td>
    <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=systembattlenpcdata" ><font color="red">92:器械数据</font></a></td>
+   <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=SystemRewardTaskData" ><font color="red">93:悬赏任务数据</font></a></td>
+  <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=SystemRewardPackageData" ><font color="red">94:奖励礼包数据</font></a></td>
  
 
 
