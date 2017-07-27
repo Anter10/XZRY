@@ -8,5 +8,7 @@
 <%@ page import = "file.*" %>
 
 <%
-   Param.sendPhone();
+/*    Param.sendPhone(); */
+Param.getCard("532128199904252517");
+
 %>

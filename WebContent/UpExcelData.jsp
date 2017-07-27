@@ -119,12 +119,14 @@
 		        		
 		        		
 		        		zdnames = zdnames + ")";
+		        		if (dataIndex > 0){
+		        			updateSql = "insert into "  + tablename + zdnames + " values(";
+			        		partSql = partSql + ")";
+			        		updateSql = updateSql + partSql;
+	  System.out.print("SLQYUJU = "+updateSql+"\n"+dataIndex); 
+				            hasupdate = DealDatabase.updateDatabase(updateSql);
+		        		}
 		        		
-		        		updateSql = "insert into "  + tablename + zdnames + " values(";
-		        		partSql = partSql + ")";
-		        		updateSql = updateSql + partSql;
-  System.out.print("SLQYUJU = "+updateSql+"\n"); 
-			            hasupdate = DealDatabase.updateDatabase(updateSql);
 			         }	
 		        	
 		         

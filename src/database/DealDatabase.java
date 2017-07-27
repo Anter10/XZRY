@@ -177,11 +177,7 @@ public class DealDatabase {
 		    	   appts.put(fstr);
 		                  	
 		       }
-		       
-		       
-		 
-		 
-		  	   return appts;
+		      return appts;
 	}
 	
     //	得到ResultSet查询结果

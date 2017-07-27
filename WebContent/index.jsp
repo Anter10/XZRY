@@ -180,6 +180,7 @@ a:hover{
    <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=systembattlenpcdata" ><font color="red">92:器械数据</font></a></td>
    <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=SystemRewardTaskData" ><font color="red">93:悬赏任务数据</font></a></td>
   <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=SystemRewardPackageData" ><font color="red">94:奖励礼包数据</font></a></td>
+ <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=SkillInfoShowWordData" ><font color="red">95:技能描述文本</font></a></td>
  
 
 

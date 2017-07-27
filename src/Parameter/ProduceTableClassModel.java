@@ -8,10 +8,11 @@ import org.json.JSONException;
 import database.*;
 import org.json.*;
 import file.*;
+import java.util.*;
 
 public class ProduceTableClassModel {
-   
     
+    private String Info = "//本文档由  hskj-express 在"+Param.getTime()+"创建";
     // 产生单个表的java模版类
     public  String produceClassModel(String tbname) throws SQLException, JSONException{
     	String classinfo = "";
@@ -19,43 +20,43 @@ public class ProduceTableClassModel {
     	String javaname = tbname;
     	// java文件名称
     	String filename = tbname;
-    	classinfo = "public class " + javaname +"{\n";
+    	
+    	classinfo = "package hskj.express.client.model; \n\n\n " +Info+"\n\n"
+    			+ "public class " + javaname +"{\n\n";
     	// 查询给定的表名称
     	String selectsql = "select * from " + tbname ;
     	// 得到表的所有字段名称
-    	String alllabelname = DealDatabase.getQuerryJsonStringData(selectsql);
+    	String []alllabelname = DealDatabase.getTableProNames(tbname);
+    	System.out.println("/n"+tbname + "name = "+alllabelname);
     	if(alllabelname != null){
-    		JSONObject allobj = new JSONObject(alllabelname);
-    		JSONArray ja = allobj.getJSONArray("lb");
-    		
-    		for(int lbIndex = 0; lbIndex < ja.length(); lbIndex ++){
-    			String tstring = "private String " +ja.getString(lbIndex) + " = null;\n" ;
-    			String labelname = ja.getString(lbIndex);
+    		for(int lbIndex = 0; lbIndex < alllabelname.length; lbIndex ++){
+    			String tstring = "     private String " +alllabelname[lbIndex] + " = null;\n" ;
+    			String labelname =alllabelname[lbIndex];
     			String fStr    = labelname.substring(0, 1).toUpperCase();
     			String fiStr   = labelname.substring(1, labelname.length());
-    			String setFunc = "public void set"+fStr+fiStr + "( String "+labelname+")" +"{\n" + "         this." + labelname + " = " + labelname +";\n"+"}\n\n";
-    			String getFunc = "public String get"+fStr+fiStr + "()" +"{\n" + "         return this." + labelname + ";"+"\n}\n\n";
+    			String setFunc = "     public void set"+fStr+fiStr + "( String "+labelname+")" +"{\n" + "         this." + labelname + " = " + labelname +";\n"+"     }\n";
+    			String getFunc = "     public String get"+fStr+fiStr + "()" +"{\n" + "         return this." + labelname + ";"+"\n     }\n\n";
     			classinfo = classinfo + tstring + setFunc + getFunc;
     		}
-    		
+    		   
     	}else{
     		return null;
     	}
     	
-    	return classinfo;
+    	return classinfo + "}\n\n";
     }
     
     // 生成所有的数据模型
-    public  boolean produceAllJavaModel(String filetype) throws SQLException, JSONException, IOException{
-    	for(int tbIndex = 0; tbIndex < Param.allgametable.length; tbIndex ++){
+    public  boolean produceAllJavaModel(String filetype, List<String> dbtable) throws SQLException, JSONException, IOException{
+    	for(int tbIndex = 0; tbIndex < dbtable.size(); tbIndex ++){
     		String classinfo = "";
     		if(filetype.equals("java")){
-    		   classinfo = this.produceClassModel(Param.allgametable[tbIndex]);
+    		   classinfo = this.produceClassModel(dbtable.get(tbIndex));
     		}else if(filetype.equals("lua")){
-    			classinfo = this.produceSingleLuaScript(Param.allgametable[tbIndex]);
+    			classinfo = this.produceSingleLuaScript(dbtable.get(tbIndex));
     		}	
     		if(classinfo != null){
-    		  String name =  "/Users/guoyouchao/Desktop/model/"+Param.allgametable[tbIndex]+"."+filetype;	
+    		  String name =  "/Users/guoyouchao/Desktop/model/"+dbtable.get(tbIndex)+"."+filetype;	
     		  filemanager.getFM().writeJSONDataToFile(classinfo,name);
     		}
     	}
@@ -71,16 +72,13 @@ public class ProduceTableClassModel {
             	
     	finInfo = "local " + className + " = class(\""+className+"\",{})\n\n";
     	// 查询给定的表名称
-    	String selectsql = "select * from " + tbname ;
+//    	String selectsql = "select * from " + tbname ;
     	// 得到表的所有字段名称
-    	String alllabelname = DealDatabase.getQuerryJsonStringData(selectsql);
+    	String []alllabelname = DealDatabase.getTableProNames(tbname);
     	finInfo = finInfo + "\nfunction " + className + ":ctor(data)\n   self.data = data    \nend\n\n\n";
     	if(alllabelname != null){
-    		JSONObject allobj = new JSONObject(alllabelname);
-    		JSONArray ja = allobj.getJSONArray("lb");
-    		
-    		for(int lbIndex = 0; lbIndex < ja.length(); lbIndex ++){
-    			String labelname = ja.getString(lbIndex);
+    		for(int lbIndex = 0; lbIndex < alllabelname.length; lbIndex ++){
+    			String labelname = alllabelname[lbIndex];
     			String fStr    = labelname.substring(0, 1).toUpperCase();
     			String fiStr   = labelname.substring(1, labelname.length());
     			String function = "function " + className + ":get"+fStr+fiStr +"()\n    return self.data["+"\""+labelname+"\"]\nend\n\n\n";
@@ -91,8 +89,8 @@ public class ProduceTableClassModel {
     	return null;
     }
     
-    public static void exportLua() throws SQLException, JSONException, IOException{
+    public static void exportLua(String lan, List<String> dbtable) throws SQLException, JSONException, IOException{
     	ProduceTableClassModel bb = new ProduceTableClassModel();
-    	bb.produceAllJavaModel("lua");
+    	bb.produceAllJavaModel(lan, dbtable);
     }
 }
