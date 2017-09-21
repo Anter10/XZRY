@@ -4,7 +4,7 @@ import org.json.*;
 import org.postgresql.jdbc.PgStatement;
 
 import com.mysql.jdbc.ResultSetMetaData;
-import java.sql.Statement;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,6 +18,46 @@ import javax.naming.*;
 
 
 public class DealDatabase {
+	public static JSONArray getDescrible1(String sql,String zdname) throws SQLException, JSONException{
+		 Statement stmt1 = null;
+			try {
+				try {
+					stmt1 = (Statement) DB.getInstance().getStamt();
+				} catch (InstantiationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} catch (NamingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		  	   ResultSet rs = stmt1.executeQuery(sql);
+		  	   System.out.print("biaomingdd ");
+		  	   ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+		  	   String tbname = rsmd.getTableName(1);
+		  	  
+		  	   int colum = rsmd.getColumnCount();
+		  	   String [] labelName = new String[colum];
+		  	
+		  	   for(int index = 0; index < colum; index ++){
+		  		 labelName[index] = rsmd.getColumnName(index +1);
+		  	   }
+		  	 
+		  	   JSONArray ta = new JSONArray();
+		       int index = 0;
+		       
+		       JSONArray appts  = new JSONArray();
+		       while(rs.next()){
+		    	   String name = zdname;
+		    	   String fstr = rs.getString(name);
+		    	   appts.put(fstr);
+		                  	
+		       }
+		      return appts;
+	}
 	
 	public static boolean connectPG() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException{
 		String Citys = "public anteruser";

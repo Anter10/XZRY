@@ -176,11 +176,19 @@ a:hover{
    <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=systemdandata" ><font color="000e0fe">89:玩家排位数据</font></a></td>
    <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=BattlePVEAreanPosData" ><font color="000e0fe">90:PVE阵型数据</font></a></td>
  </tr>
+ <tr>
    <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=systemmonsterdata" ><font color="red">91:怪物数据</font></a></td>
    <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=systembattlenpcdata" ><font color="red">92:器械数据</font></a></td>
    <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=SystemRewardTaskData" ><font color="red">93:悬赏任务数据</font></a></td>
   <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=SystemRewardPackageData" ><font color="red">94:奖励礼包数据</font></a></td>
  <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=SkillInfoShowWordData" ><font color="red">95:技能描述文本</font></a></td>
+  <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=SystemNewPlayerGuideData" ><font color="black">96:新手引导数据</font></a></td>
+  <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=SystemNewPlayerSendMsgData" ><font color="black">97:新手中的消息数据</font></a></td>
+ <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=NewPlayerGuideShowmsgData" ><font color="black">98:具体新手引导的文本显示信息</font></a></td>
+  <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=ShowNewPlayerGuideData" ><font color="black">99:每一个新手中每步的显示信息</font></a></td>
+
+  <td width = "120" height = "60"><a href  = "ShowData.jsp?tablename=SystemMissionAchievementData" ><font color="black">100:日常任务/成就</font></a></td>
+ <tr>
  
 
 

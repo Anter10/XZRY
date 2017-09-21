@@ -115,10 +115,13 @@ public class Param {
   // 所有表名
   public static String [] allgametable = {
      "SystemTavernData","SystemShowWorldData","SystemMapChapterTask","SystemMapChapterData","SystemStrangeData","SystemDevelopmentData", "needdatas","work","SystemChessData","txt","ChatSystemData","SystemEmailTypeData","PropCombineData","SystemAwardTypeData","AllLanguageData","SystemSkillUpLevelData","SystemHeroPromotionData","AllUpLevelData","AllDialogData","RolesAllDialogData","ProperityEffectData","SystemSpecialSkillData","AllHerosData","TerritoryCellData","TerritoryMapData", "RoleSuitData", "SystemEquipData","LoadingLayerData","GameTimes","LinkActionData","HeroStatues","HeroStatueConvert","SystemBattleUnitData","BattleSceneParamData","AllSpecialData","RoleSpecialData","BattleRoleSpecialGrowup","CommonActionData","SystemBuffData","SystemSkillData","SystemSonSkillData","DialogViewData","SoltNameData","SystemBuyDiamondData","SystemPropData","SystemChatTypeData","SystemEmailData","SystemPropTypeData","SystemGameViewsData","SystemUIAudoEffect","SystemRolesAudioEffect","SystemGameMusic",
-      "MainCityResData","SystemBuildLevelData","SystemColor","SystemTextFontData","SystemFontData","SystemFontUseData","SystemIconBottom","SystemIconData","SystemIconFramData","SystemShopTypeData","SystemHeroRandomActions","SystemRewardTaskData","SystemRewardPackageData","SkillInfoShowWordData",
-     "SystemSkillAudioEffect","SystemRolesAudioEffect","SystemUIAudoEffect","SystemOnlyUiTextData","BattleBackgroundMapData","UINpcData","SystemTerritoryMapTreasureData","systemdandata","BattlePVEAreanPosData","systemmonsterdata","systembattlenpcdata","equipitemdata"
+      "MainCityResData","SystemBuildLevelData","SystemColor","SystemTextFontData","SystemFontData","SystemFontUseData","SystemIconBottom","SystemIconData","SystemIconFramData","SystemShopTypeData","SystemHeroRandomActions","SystemRewardTaskData","SystemRewardPackageData","SkillInfoShowWordData","SystemNewPlayerSendMsgData","SystemNewPlayerGuideData","SystemMissionAchievementData",
+     "SystemSkillAudioEffect","SystemRolesAudioEffect","SystemUIAudoEffect","SystemOnlyUiTextData","BattleBackgroundMapData","UINpcData","SystemTerritoryMapTreasureData","systemdandata","BattlePVEAreanPosData","systemmonsterdata","systembattlenpcdata","equipitemdata","NewPlayerGuideShowmsgData","ShowNewPlayerGuideData"
   };
   
+ 
+		 
+		 
   public static String [] allheroproperty = {
 		  "100101","100201","100301","100401","100501","100601","100701","100801","100901","101001","101101","101201","101301","101401","101501","101601",
 			"101701","101801","101901","102001","160101","160201","160301","160401","160501","160601","160701","160801","160901","161001","180101","191001",
